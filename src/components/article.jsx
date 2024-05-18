@@ -8,26 +8,37 @@ const Article = () => {
   const repeatCount = 4;
   return (
     <>
-      <div className="flex gap-10 px-12 mt-12">
-        <img src={articleMain} alt="" className="" />
-        <article className="flex flex-col mt-2">
-          <h1 className="text-4xl">
-            We are dedicated to addressing <br /> the evolving requirements of
-            the <br />
+      <div className="flex flex-col lg:flex-row justify-center gap-14 px-4 sm:px-8 md:px-12 mt-12">
+        <img
+          src={articleMain}
+          alt="Main Article"
+          className="w-full lg:w-auto"
+        />
+        <article className="flex flex-col mt-2 max-w-full lg:max-w-2xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:text-left">
+            We are dedicated to addressing <br className="hidden lg:block" />
+            the evolving requirements of <br className="hidden lg:block" />
             {"world's"} most dynamic companies.
           </h1>
-          <hr className="my-8" />
+          <hr className="my-4 sm:my-6 md:my-8" />
           {Array.from({ length: repeatCount }).map((_, index) => (
             <React.Fragment key={index}>
-              {index !== 0 && <hr className="my-8" />}{" "}
-              <div className="flex justify-between">
-                <p> 0{index + 1}</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur. Metus <br /> convallis
-                  nulla volutpat tempus. Porta pretium purus <br /> risus sed
-                  posuere. Elit odio tellus eget duis facilisis in <br /> lorem.
-                  Parturient et ut quis donec mattis at rhoncus <br /> morbi.
-                  Neque turpis non orci pulvinar. Luctus proin.
+              {index !== 0 && <hr className="my-4 sm:my-6 md:my-8" />}
+              <div className="flex flex-col md:flex-row justify-between">
+                <p className="font-bold text-lg md:text-xl lg:text-2xl">
+                  {" "}
+                  0{index + 1}
+                </p>
+                <p className="text-sm sm:text-base ">
+                  Lorem ipsum dolor sit amet consectetur. Metus{" "}
+                  <br className="hidden md:block" />
+                  convallis nulla volutpat tempus. Porta pretium purus{" "}
+                  <br className="hidden md:block" />
+                  risus sed posuere. Elit odio tellus eget duis facilisis in{" "}
+                  <br className="hidden md:block" />
+                  lorem. Parturient et ut quis donec mattis at rhoncus{" "}
+                  <br className="hidden md:block" />
+                  morbi. Neque turpis non orci pulvinar. Luctus proin.
                 </p>
               </div>
             </React.Fragment>
@@ -48,13 +59,15 @@ const Article = () => {
               </div>
             )}
           >
-            {ArticleSliderData?.map((item) => {
-              return (
-                <div className="" key={item.id}>
-                  <img className="w-full h-full" src={item.url} alt="" />
-                </div>
-              );
-            })}
+            {ArticleSliderData?.map((item) => (
+              <div className="" key={item.id}>
+                <img
+                  className="w-full h-full object-cover"
+                  src={item.url}
+                  alt={item.title || "Slide"}
+                />
+              </div>
+            ))}
           </Carousel>
         </article>
       </div>
