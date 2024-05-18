@@ -47,3 +47,21 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@media (max-width: 640px) {
+  .small-screen\\:flex-col {
+    flex-direction: column;
+  }
+
+  .small-screen\\:gap-4 {
+    gap: 1rem;
+  }
+
+  .small-screen\\:w-full {
+    width: 100%;
+  }
+
+  .small-screen\\:justify-center {
+    justify-content: center;
+  }
+}

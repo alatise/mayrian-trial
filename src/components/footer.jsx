@@ -13,7 +13,7 @@ const Footer = () => {
     { id: 4, url: htag },
     {
       type: "section",
-      title: "Naviation Links",
+      title: "Navigation Links",
       items: [
         "Home",
         "About us",
@@ -35,8 +35,8 @@ const Footer = () => {
   return (
     <>
       <footer className="footer mt-16 mb-6">
-        <div className="flex px-20 gap-16 justify-center">
-          <div className="flex flex-col gap-12 text-sm">
+        <div className="flex flex-wrap px-20 gap-16 justify-center small-screen:flex-col small-screen:gap-4">
+          <div className="flex flex-col gap-12 text-sm small-screen:gap-4 small-screen:w-full">
             <p>
               Lorem ipsum dolor sit amet consectetur. Metus <br /> convallis
               nulla volutpat tempus. Porta pretium purus <br /> risus sed
@@ -53,7 +53,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="lg:col-span-2 flex gap-10 ">
+          <div className="lg:col-span-2 flex gap-10 small-screen:w-full small-screen:flex-col">
             {footerItems.map((item, index) =>
               item.type === "section" ? (
                 <div key={index}>
@@ -72,7 +72,7 @@ const Footer = () => {
               ) : null
             )}
           </div>
-          <div className="flex flex-col gap-4 justify-center items-center pl-8">
+          <div className="flex flex-col gap-4 justify-center items-center pl-8 small-screen:w-full small-screen:flex-row small-screen:justify-center">
             {footerItems
               .filter((item) => item.url)
               .map((item) => (
@@ -81,7 +81,6 @@ const Footer = () => {
           </div>
         </div>
         <span className="flex justify-center mt-10 text-sm">
-          {" "}
           <p className="border-x px-2">©{currentYear}. All Rights Reserved </p>
           <p className="border-r px-2">
             Designed by{" "}
