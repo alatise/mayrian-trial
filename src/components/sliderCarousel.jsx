@@ -23,7 +23,7 @@ export default function SliderCarousel() {
 
   return (
     <Carousel
-      className="mt-8 h-[800px] w-[620px]"
+      className="mt-8 h-[400px] w-[90%] sm:h-[600px] sm:w-[80%] md:h-[800px] md:w-[620px] mx-auto"
       prevArrow={({ handlePrev }) => (
         <div ref={ref}>
           <IconButton
@@ -34,7 +34,7 @@ export default function SliderCarousel() {
           >
             <Typography
               style={style}
-              className="!absolute border-2 p2 border-red-white rounded-full z-10 flex justify-center items-center text-[30px]"
+              className="!absolute border-2 p-2 border-red-white rounded-full z-10 flex justify-center items-center text-[30px]"
             >
               <FaArrowRightLong />
             </Typography>
@@ -44,7 +44,7 @@ export default function SliderCarousel() {
     >
       {ArticleSliderData.map((item) => (
         <div
-          className="relative  bg-white"
+          className="relative bg-white"
           key={item.id}
           style={{
             border: "1px solid black",
@@ -52,7 +52,7 @@ export default function SliderCarousel() {
           }}
         >
           <img
-            className=" w-full h-full object-cover"
+            className="w-full h-full object-cover"
             src={item.url}
             alt={item.title || "Slide"}
           />
