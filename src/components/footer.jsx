@@ -4,6 +4,7 @@ import fb from "../assets/socials/fb.svg";
 import ping from "../assets/socials/pngwing.svg";
 import ig from "../assets/socials/ig.svg";
 import htag from "../assets/socials/List.svg";
+import bg from "../assets/footer-bg.svg";
 
 const Footer = () => {
   const footerItems = [
@@ -34,7 +35,10 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="footer mt-16 mb-6">
+      <footer
+        className="footer mt-16  pt-24 pb-6"
+        style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover" }}
+      >
         <div className="flex flex-wrap px-20 gap-16 justify-center small-screen:flex-col small-screen:gap-4">
           <div className="flex flex-col gap-12 text-sm small-screen:gap-4 small-screen:w-full">
             <p>
@@ -80,9 +84,11 @@ const Footer = () => {
               ))}
           </div>
         </div>
-        <span className="flex justify-center mt-10 text-sm">
-          <p className="border-x px-2">©{currentYear}. All Rights Reserved </p>
-          <p className="border-r px-2">
+        <span className="flex justify-center items-center mt-10 text-sm">
+          <p className="border-x border-[#7D7D7D80] px-2">
+            ©{currentYear}. All Rights Reserved{" "}
+          </p>
+          <p className="border-r border-[#7D7D7D80] px-2">
             Designed by{" "}
             <span className="text-[#33ca47] underline">Mayrian</span>
           </p>

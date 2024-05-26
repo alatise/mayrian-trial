@@ -19,6 +19,14 @@ const Projects = () => {
                   alt=""
                 />
               </div>
+              <div className="absolute bottom-5 left-4 flex flex-col gap-1">
+                <h2 className="text-white text-2xl font-medium font-['GT Walsheim Trial']">
+                  Project Title
+                </h2>
+                <p className="text-white text-base font-medium font-['GT Walsheim Trial']">
+                  Category
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -32,6 +40,14 @@ const Projects = () => {
                   alt=""
                 />
               </div>
+              <div className="absolute bottom-5 left-4 flex flex-col gap-1">
+                <h2 className="text-white text-2xl font-medium font-['GT Walsheim Trial']">
+                  Project Title
+                </h2>
+                <p className="text-white text-base font-medium font-['GT Walsheim Trial']">
+                  Category
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -44,6 +60,14 @@ const Projects = () => {
                   className="group-hover:scale-110 duration-500 w-full h-full object-cover"
                   alt=""
                 />
+              </div>
+              <div className="absolute bottom-5 left-4 flex flex-col gap-1">
+                <h2 className="text-white text-2xl font-medium font-['GT Walsheim Trial']">
+                  Project Title
+                </h2>
+                <p className="text-white text-base font-medium font-['GT Walsheim Trial']">
+                  Category
+                </p>
               </div>
             </div>
           ))}

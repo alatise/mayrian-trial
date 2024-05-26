@@ -7,28 +7,28 @@ import image4 from "../assets/hero-images/hero-4.svg";
 
 const HeroSliderData = [
   {
-    id: 1,
-    title: "Project",
-    description: "Tranquil Beach with Gentle Waves and Clear Blue Sky",
     url: image1,
+    heading: "Project Tile 1",
+    text: "lorem ipsum dolor",
+    industry: "Private Property",
   },
   {
-    id: 2,
-    title: "Project",
-    description: "Tranquil Beach with Gentle Waves and Clear Blue Sky",
     url: image2,
+    heading: "Project Tile 2",
+    text: "lorem ipsum dolor",
+    industry: "Educational Purpose",
   },
   {
-    id: 3,
-    title: "Project",
-    description: "Tranquil Beach with Gentle Waves and Clear Blue Sky",
     url: image3,
+    heading: "Project Tile 3",
+    text: "lorem ipsum dolor",
+    industry: "Marketplace",
   },
   {
-    id: 4,
-    title: "Project",
-    description: "Tranquil Beach with Gentle Waves and Clear Blue Sky",
     url: image4,
+    heading: "Project Tile 4",
+    text: "lorem ipsum dolor",
+    industry: "Health Facility",
   },
 ];
 

@@ -10,13 +10,13 @@ import "./index.css";
 function App() {
   return (
     <>
-      <div>
+      <div className="">
         <Header />
         <Navbar />
         <Hero />
         <Article />
         <Services />
-        <hr className="my-10" />
+        <hr className="my-10 border-[#7D7D7D80] h-1" />
         <Projects />
         <Footer />
       </div>

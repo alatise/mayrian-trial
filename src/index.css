@@ -7,13 +7,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* max-width: 1440px;
-  display: flex;
-  justify-content: center; */
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,15 +17,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+/* body {
   min-width: 320px;
   min-height: 100vh;
-}
-
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-}
+} */
 
 .footer {
   background-image: url("../assets/footer-bg.svg");

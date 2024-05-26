@@ -4,7 +4,7 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      <div className="flex justify-between px-10 my-5">
+      <div className="flex justify-between px-16 my-5">
         <div></div>
         <div className="flex gap-4">
           <p>

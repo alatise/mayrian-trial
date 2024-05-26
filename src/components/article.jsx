@@ -1,19 +1,84 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import articleMain from "../assets/article-transition/main.svg";
-import { Carousel } from "@material-tailwind/react";
-import ArticleSliderData from "../lib/articleSliderData";
+import SliderCarousel from "./sliderCarousel";
 
 const Article = () => {
   const repeatCount = 4;
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const carouselRef = useRef(null);
+  const [carouselBounds, setCarouselBounds] = useState(null);
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setMousePosition({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    const updateCarouselBounds = () => {
+      if (carouselRef.current) {
+        setCarouselBounds(carouselRef.current.getBoundingClientRect());
+      }
+    };
+    updateCarouselBounds();
+    window.addEventListener("resize", updateCarouselBounds);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", updateCarouselBounds);
+    };
+  }, []);
+
+  const [isMouseInCarousel, setIsMouseInCarousel] = useState(false);
+
+  useEffect(() => {
+    const carouselElement = carouselRef.current;
+    if (!carouselElement) return;
+
+    const handleMouseMove = (event) => {
+      if (isMouseInCarousel) {
+        const carouselRect = carouselElement.getBoundingClientRect();
+        const relativeMouseY = event.clientY - carouselRect.top;
+        setMousePosition({
+          x: event.clientX,
+          y: relativeMouseY + window.scrollY,
+        });
+      }
+    };
+
+    const handleMouseEnter = () => {
+      setIsMouseInCarousel(true);
+    };
+
+    const handleMouseLeave = () => {
+      setIsMouseInCarousel(false);
+    };
+
+    carouselElement.addEventListener("mousemove", handleMouseMove);
+    carouselElement.addEventListener("mouseenter", handleMouseEnter);
+    carouselElement.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      carouselElement.removeEventListener("mousemove", handleMouseMove);
+      carouselElement.removeEventListener("mouseenter", handleMouseEnter);
+      carouselElement.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
   return (
     <>
       <div className="flex flex-col lg:flex-row justify-center gap-14 px-4 sm:px-8 md:px-12 mt-12">
-        <img
-          src={articleMain}
-          alt="Main Article"
-          className="w-full lg:w-auto"
-        />
+        <div className="relative">
+          <div className="sticky top-[48px] left-0">
+            <img
+              src={articleMain}
+              alt="Main Article"
+              className="w-full lg:w-auto"
+            />
+          </div>
+        </div>
         <article className="flex flex-col mt-2 max-w-full lg:max-w-2xl">
           <h1 className="text-2xl sm:text-3xl md:text-4xl text-center lg:text-left">
             We are dedicated to addressing <br className="hidden lg:block" />
@@ -43,32 +108,7 @@ const Article = () => {
               </div>
             </React.Fragment>
           ))}
-          <Carousel
-            className="mt-8"
-            navigation={({ setActiveIndex, activeIndex, length }) => (
-              <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-                {new Array(length).fill("").map((_, i) => (
-                  <span
-                    key={i}
-                    className={`block h-1 cursor-pointer transition-all content-[''] ${
-                      activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
-                    }`}
-                    onClick={() => setActiveIndex(i)}
-                  />
-                ))}
-              </div>
-            )}
-          >
-            {ArticleSliderData?.map((item) => (
-              <div className="" key={item.id}>
-                <img
-                  className="w-full h-full object-cover"
-                  src={item.url}
-                  alt={item.title || "Slide"}
-                />
-              </div>
-            ))}
-          </Carousel>
+          <SliderCarousel />
         </article>
       </div>
     </>
